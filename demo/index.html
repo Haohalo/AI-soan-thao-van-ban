@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo AI Soạn thảo văn bản hành chính</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Trợ lý AI Soạn thảo Văn bản</h1>
+        <p>Bản demo giao diện MVP (Chatbot + Mẫu + Cấu hình + Phân tích tài liệu)</p>
+      </div>
+      <button class="primary">Tạo dự thảo mới</button>
+    </header>
+
+    <main class="layout">
+      <section class="panel chatbot">
+        <h2>1) Chatbot hỏi trực tiếp</h2>
+        <div class="chat-window" id="chatWindow">
+          <div class="msg bot">
+            Xin chào! Anh/chị cần soạn loại văn bản nào (công văn, tờ trình, báo cáo...)?
+          </div>
+        </div>
+        <form id="chatForm" class="chat-input">
+          <input id="chatText" type="text" placeholder="Nhập yêu cầu soạn thảo..." />
+          <button type="submit" class="primary">Gửi</button>
+        </form>
+      </section>
+
+      <section class="panel templates">
+        <h2>2) Mẫu văn bản sẵn có</h2>
+        <div class="template-grid">
+          <button class="template-card active">Công văn</button>
+          <button class="template-card">Tờ trình</button>
+          <button class="template-card">Báo cáo</button>
+          <button class="template-card">Thông báo</button>
+          <button class="template-card">Quyết định</button>
+        </div>
+      </section>
+
+      <section class="panel config">
+        <h2>3) Cài đặt thông tin đơn vị</h2>
+        <div class="form-grid">
+          <label>Tên đơn vị
+            <input type="text" value="Sở Nội vụ TP Hà Nội" />
+          </label>
+          <label>Người ký
+            <input type="text" value="Nguyễn Văn A" />
+          </label>
+          <label>Chức danh
+            <input type="text" value="Giám đốc" />
+          </label>
+          <label>Nơi nhận mặc định
+            <input type="text" value="UBND Thành phố; Lưu VT" />
+          </label>
+        </div>
+        <button class="secondary">Lưu cấu hình</button>
+      </section>
+
+      <section class="panel upload">
+        <h2>4) Tải tài liệu để AI phân tích</h2>
+        <div class="upload-box">
+          <input type="file" id="docFile" accept=".pdf,.doc,.docx,.txt" />
+          <button class="secondary" id="analyzeBtn">Phân tích tài liệu</button>
+        </div>
+        <div class="analysis" id="analysisBox">
+          <p><strong>Gợi ý mẫu văn bản:</strong> Công văn trả lời</p>
+          <p><strong>Nội dung tham mưu:</strong> Đề xuất phương án xử lý hồ sơ theo quy trình rút gọn, nêu rõ căn cứ và thời hạn thực hiện.</p>
+        </div>
+      </section>
+
+      <section class="panel draft">
+        <h2>5) Dự thảo đầu ra (~80%)</h2>
+        <textarea rows="14">
+SỞ NỘI VỤ TP HÀ NỘI
+Số: .../CV-SNV
+
+V/v hướng dẫn xử lý hồ sơ hành chính
+
+Kính gửi: ...
+
+Căn cứ nội dung tài liệu đã phân tích, đơn vị tham mưu đề xuất:
+1. ...
+2. ...
+3. ...
+
+Kính đề nghị đơn vị phối hợp triển khai đúng thời hạn.
+
+Nơi nhận:
+- Như trên;
+- Lưu: VT.
+        </textarea>
+        <div class="actions">
+          <button class="secondary">Làm mới bằng AI</button>
+          <button class="primary">Xuất bản dự thảo</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
